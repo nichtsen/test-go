@@ -1,11 +1,17 @@
-package main
+package customjson
 
 import (
 	"encoding/json"
 	"time"
 )
 
-func main() {}
+type Temple struct {
+	ID int64 `json:"id,string"`
+	Lv int64 `json:"lv"`
+	// 升级所需时间（秒） map[Lv]Seconds
+	LvSeconds map[int64]int64 `json:"lv_seconds"`
+	ChildID   []int64         `json:"child_id"`
+}
 
 type User struct {
 	Id    int       `json:"id"`

@@ -1,26 +1,11 @@
-package main
+package typeof
 
 import (
-	"encoding/json"
 	"fmt"
 	"io"
 	"reflect"
 	"testing"
-	"time"
 )
-
-func TestMarshal(t *testing.T) {
-	u := &User{
-		Id:    3,
-		Name:  "peter",
-		Xtime: time.Now(),
-	}
-	b, err := json.MarshalIndent(u, "", "    ")
-	if err != nil {
-		t.Error(err)
-	}
-	fmt.Printf(string(b))
-}
 
 // TestInterface
 // notation: -> means a pointer points to;
