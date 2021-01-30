@@ -1,2 +1,2 @@
-// Package method function has first-class status in golang
+// Function has first-class status in golang
 package method
