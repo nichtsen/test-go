@@ -1,4 +1,4 @@
-package tcp
+package main
 
 import (
 	"fmt"
@@ -9,6 +9,7 @@ import (
 
 func Serve(addr string, cert ...string) {
 	tpcL := acceptor.NewTCPAcceptor(addr, cert...)
+	fmt.Printf("tpcl")
 	defer tpcL.Stop()
 	go tpcL.ListenAndServe()
 	conn := tpcL.GetConnChan()
@@ -23,4 +24,11 @@ func Serve(addr string, cert ...string) {
 	case <-time.After(time.Second * 100):
 		fmt.Println("timeout, exit")
 	}
+}
+
+func main() {
+	const (
+		addr = "127.0.0.1:35766"
+	)
+	Serve(addr, "server.crt", "server.key")
 }
