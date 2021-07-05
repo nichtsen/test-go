@@ -45,7 +45,7 @@ func Dial(addr string) {
 		log.Fatal(err)
 	}
 	p := codec.NewPomeloPacketEncoder()
-	pck, err := p.Encode(packet.Handshake, cipherMsg)
+	pck, err := p.Encode(packet.Data, cipherMsg)
 	if err != nil {
 		log.Fatal(err)
 	}
