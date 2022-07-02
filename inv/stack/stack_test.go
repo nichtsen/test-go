@@ -1,6 +1,6 @@
-package inv
+package stack
 import "testing"
-
+// 155
 type MinStack struct {
 	stk []int
 	min []int
@@ -52,4 +52,60 @@ func TestMinstack(t *testing.T) {
 	}
 }
 
+// 20
+func Valid(s string) bool {
+	counter := make([]rune,0)	
+	for _, byt := range s {
+		switch byt {
+		case '{','(','[':
+			counter=append(counter, byt)
+		case ')',']','}':
+			if len(counter) == 0 {
+				return false 
+			}
+			if byt == ')' && counter[len(counter)-1] == '(' {
+				counter = counter[:len(counter)-1] 
+				continue
+			} 			
+			if byt == ']' && counter[len(counter)-1] == '[' {
+				counter = counter[:len(counter)-1] 
+				continue 
+			} 
+			if byt == '}' && counter[len(counter)-1] == '{' {
+				counter = counter[:len(counter)-1] 
+				continue
+			} 		
+			return false 
+		}
+	}
+	if len(counter) == 0 {
+		return true
+	}
+	return false
+}
 
+func TestValid(t *testing.T) {
+	s := "([)]"
+	res := Valid(s)
+	if res != false {
+		t.Errorf("expected to be %v, but got %v", false, res)
+	}
+}
+
+// 739
+func temperature(temp []int) []int {
+	stk := make([]int, 0)
+	res := make([]int, len(temp))
+	for i:=0; i<len(temp); i++ {
+		for ;len(stk)>0; {
+			last := stk[len(stk)-1]
+			if temp[i] <= temp[last] {
+				break
+			}
+			res[last] = i - last
+			stk = stk[:len(stk)-1]
+		}
+		stk = append(stk, i)
+	}	
+	return res
+}
