@@ -5,7 +5,7 @@ import (
 	"sort"
 	"testing"
 )
-
+// 455
 func children(g, s []int) int {
 	sort.Ints(g)
 	sort.Ints(s)
@@ -57,7 +57,7 @@ func (in Interval) Less(i, j int) bool { return in[i][1] < in[j][1] }
 func (in Interval) Swap(i, j int) { tmp := in[i]; in[i] = in[j]; in[j] = tmp;} 
 // 435: non-overlapping interval
 func interval(in [][]int) int {
-	sort.Sort(Interval(in))
+	sort.Slice(in, func(i,j int)bool {return in[i][1] < in[j][1]})
 	cnt := 0 
 	last := in[0][1] 
 	for i:=1;i<len(in); i++ {

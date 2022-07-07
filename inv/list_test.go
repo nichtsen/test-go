@@ -118,3 +118,21 @@ func parlindromList02(head *ListNode) bool {
 	}
 	return true
 }
+
+// 142 detect cycle 
+func dcycle(head *ListNode) *ListNode {
+	if head == nil || head.Next == nil {return nil}
+	slow:= head.Next
+	fast := head.Next.Next
+	for ;slow!=fast; {
+		if fast == nil || fast.Next == nil { return nil }
+		fast = fast.Next.Next
+		slow = slow.Next
+	}
+	fast = head
+	for ;slow!=fast; {
+		fast = fast.Next
+		slow = slow.Next
+	}
+	return slow
+}
