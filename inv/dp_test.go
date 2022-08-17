@@ -184,3 +184,45 @@ func lst(a []int) int {
 	}
 	return res
 }
+
+
+func hot(a [][2]int, m int) {
+	max := 0
+	min := 1000
+	di := map[int]int{}
+	for _, e :=range a {
+		if e[0] + e[1] > max {
+			max = e[0] + e[1]
+		}  
+		if e[0] + e[1] < min {
+			min = e[0] + e[1]
+		}
+		di[e[0]+e[1]]++
+	}
+	da := make([]int, max+1)
+	for key, val :=range di {
+		da[key] = val
+	}
+	fmt.Println(da)
+	dp := make([]int, max+1)
+	for i:=min; i<min+m; i++ {
+		dp[i] = da[i]
+	}
+	for i:=min;i<len(dp);i++ {
+		dp[i] = maxc(dp[i-m]+da[i], dp[i-1])
+	}
+	fmt.Println(dp[max])
+}
+func maxc(a, b int) int {
+	if a > b {
+	return a
+	}
+	return b
+}
+
+func TestHot(t *testing.T) {
+	a := [][2]int{ {1,2},{1,3},{2,3}}
+	m := 1
+	hot(a, m)
+}
+

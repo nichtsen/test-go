@@ -1,5 +1,7 @@
 package main
 
+import "math"
+
 
 import (
 	"testing"
@@ -76,6 +78,22 @@ func TestLeastCars(t *testing.T) {
 		t.Errorf("expected to %v, got %v", 3, res)
 	}
 }
+
+func triSqrt(a float64) float64 {
+	x := a
+	for ;math.Abs(x*x*x - a) > 0.1; {
+		x = (x + a/(x*x))/2 
+		fmt.Println(x)
+	}
+	return x
+}
+
+func TestTriSqrt(t *testing.T) {
+	a := 19.9
+	_ = triSqrt(a)
+	
+}
+
 
 
 
