@@ -177,9 +177,24 @@ struct methodTree{
 method string
 root \*node
 }
-mysql:
-index: clustered index, secondary index, covering index
-engine: innodb mylASM
+
+## mysql
+
+- index: [clustered index and secondary index](https://dev.mysql.com/doc/refman/5.7/en/innodb-index-types.html),
+  [usage of b+tree](https://www.callibrity.com/blog/database-index-usage-of-b-tree-in-the-practical-database-system#:~:text=InnoDB%20Usage%20of%20B%2B%20tree&text=As%20can%20be%20seen%2C%20each,shown%20in%20MyISAM%20storage%20engine.)
+
+b+tree and range query(mysql)
+b-tree and internal node that holds data(mongodb)
+
+- covering index: avoid transmission from seconndary index to cluster index
+
+- engine: innodb myIASM
+
+  - innodb: raw data in leaf node
+  - mylASM: address of the record in leaf node
+
+- cache index: [buffer tool](https://dev.mysql.com/doc/refman/8.0/en/innodb-buffer-pool.html#:~:text=The%20buffer%20pool%20is%20an,memory%2C%20which%20speeds%20up%20processing.)
+
 distributed storage:
 distributed strategy:
 partitioned by id range (in tikv as a region);
@@ -449,3 +464,19 @@ l-(l%r)
   - black: active
   - gray: child node may be white
   - dfs
+
+## leetcode::daul pointer
+
+- two sum problem: two opposite sides and moving towards each other
+- moving window: start on the side and moving towards the same diection
+
+## leetcode::dfs and bfs search
+
+- search tree
+  - preorder
+  - inorder
+  - postorder
+- search graph(2 dimentional array)
+  - four directions
+  - dfs: stack(FILO) or recursion
+  - bfs: queque
