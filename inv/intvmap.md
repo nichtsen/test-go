@@ -480,3 +480,14 @@ l-(l%r)
   - four directions
   - dfs: stack(FILO) or recursion
   - bfs: queque
+
+## leetcode::lis and lcs
+
+    in both longest increasing subsequence and longest commone subsequence,
+    evey entry of a dp array, no matter it is 1 dimentional or 2,
+    is the solution of the subproblem it represents.
+    in the LIS problem, the transaction funciton is:
+    dp[i] = max(dp[j]+1, dp[i]) (j<i)
+    in the LCS problem:
+    dp[i][j] = dp[i-1][j-1] + 1 (extensible);
+    dp[i][j] = max(dp[i-1][j], dp[i][j-1]) (inheritance from previous)
