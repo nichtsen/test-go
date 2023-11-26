@@ -427,7 +427,7 @@ a software engineer hence shall never trapped in a single facility, he always pr
 beyond any certain set of APIs. such a horizon liberate himself from a colored glasses that he may have wore
 on with no intention.
 
-ast and interpretor
+#TODO: ast and interpretor
 
 heap and memory
 
@@ -491,3 +491,10 @@ l-(l%r)
     in the LCS problem:
     dp[i][j] = dp[i-1][j-1] + 1 (extensible);
     dp[i][j] = max(dp[i-1][j], dp[i][j-1]) (inheritance from previous)
+
+# binary packing problem
+
+- with input array num []int
+  for every item in the pack, pick it or not, the solution is an array of binary solution []bool
+- transfer expression:
+  dp[i][j] = max(dp[i-1][j], dp[i-1][j-w]), w is the weight of ith item
