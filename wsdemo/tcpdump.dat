@@ -1,0 +1,27 @@
+00:48:41.278348 IP localhost.49938 > localhost.7077: Flags [P.], seq 1:529, ack 1, win 512, options [nop,nop,TS val 1456825323 ecr 1456825323], length 528
+E..D..@.@...............j..;.........9.....
+V.c.V.c.GET /demo HTTP/1.1
+Host: localhost:7077
+Connection: Upgrade
+Pragma: no-cache
+Cache-Control: no-cache
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36
+Upgrade: websocket
+Origin: http://localhost:7077
+Sec-WebSocket-Version: 13
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en,vi;q=0.9
+Cookie: _ga=GA1.1.859730301.1653294023
+Sec-WebSocket-Key: RLzoywX0QImYtdPuLwSlow==
+Sec-WebSocket-Extensions: permessage-deflate; client_max_window_bits
+
+
+00:48:41.278361 IP localhost.7077 > localhost.49938: Flags [.], ack 529, win 508, options [nop,nop,TS val 1456825323 ecr 1456825323], length 0
+E..4 G@.@..{................j..K.....(.....
+V.c.V.c.
+00:48:41.278630 IP localhost.7077 > localhost.49938: Flags [P.], seq 1:130, ack 529, win 512, options [nop,nop,TS val 1456825324 ecr 1456825323], length 129
+E... H@.@...................j..K...........
+V.c.V.c.HTTP/1.1 101 Switching Protocols
+Upgrade: websocket
+Connection: Upgrade
+Sec-WebSocket-Accept: gUq9Vett+B47TMWYOC7xto+gl3g=
